@@ -3,7 +3,7 @@ Created on Jan 2, 2016
 
 @author: Alex
 '''
-from compiler.ast import Node
+import ast
 
 
 class LinkedList:
@@ -83,7 +83,7 @@ class LinkedListIter:
         self.list = list
         self.pos = list.head.next
         
-    def next(self):
+    def __next__(self):
         if self.pos == self.list.head:
             raise StopIteration
         else:

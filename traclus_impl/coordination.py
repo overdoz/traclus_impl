@@ -39,7 +39,7 @@ def run_traclus(point_iterable_list, epsilon, min_neighbors, min_num_trajectorie
                         clusters_hook=clusters_hook)
     
 def with_spikes_removed(trajectory):
-    if len(trajectory) <= 2:
+    if len(list(trajectory)) <= 2:
         return trajectory[:]
         
     spikes_removed = []
