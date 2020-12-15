@@ -11,15 +11,17 @@ Created on Feb 13, 2016
 import math
 from random import random
 
+
 class SimulatedAnnealingState:
     def __init__(self):
         pass
-    
+
     def get_energy(self):
         raise NotImplementedError()
-    
+
     def get_random_neighbor(self):
         raise NotImplementedError()
+
 
 def anneal_step(steps_per_temp, cur_step, \
                 max_temp, min_temp, prev_state, new_state, \
@@ -31,13 +33,11 @@ def anneal_step(steps_per_temp, cur_step, \
     print rand_val
     print math.exp(-energy_diff / temp)
     print "----"
-    
+
     if energy_diff > 0.0 and math.exp(-energy_diff / temp) < rand_val:
         cur_state = prev_state
     else:
         cur_state = new_state
-        
+
     return find_next_state_func(steps_per_temp, cur_step + 1, \
-                          max_temp, min_temp, cur_state)
-        
-    
+                                max_temp, min_temp, cur_state)
